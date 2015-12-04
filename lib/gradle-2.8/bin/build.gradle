@@ -1,0 +1,12 @@
+def executeTests() {
+    exec {
+        executable "../../phpunit-old.phar"
+        args "--bootstrap", "../../../src/Example/autoload.php", "../../../test/Example/MoneyTest"
+    }
+}
+
+task executePHPTests {
+    doLast {
+        executeTests()
+    }
+}

@@ -1,0 +1,30 @@
+<project>
+  <dependencies>
+    <dependency>
+      <groupId>org.phpunit</groupId>
+      <artifactId>phpunit5</artifactId>
+      <version>3.3.9</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+   <build>
+    <directory>target</directory>
+    <outputDirectory>target/classes</outputDirectory>
+    <finalName>${artifactId}-${version}</finalName>
+    <testOutputDirectory>target/test-classes</testOutputDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+    </testResources>
+  </build>
+</project>
