@@ -4,15 +4,21 @@ $dbname = "dhar1102";
 $username = "dhar1102";
 $password = "s3cr3t";
 $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-function getAlert() {
-   global $dbConn;
-   $sql = "SELECT alert
-           FROM se_emergencyAlerts";
-   $stmt = $dbConn -> prepare($sql);
-   $stmt -> execute();
-   return $stmt->fetchAll();
+
+ if (isset ($_POST['update'])){
+        $sql = "INSERT INTO se_userLocation
+                (userId, location, date)
+                VALUES
+                (:userId, :location, :date)";
+        $stmt = $dbConn -> prepare($sql);
+        $stmt -> execute(array(
+                               ":userId"=>1,
+                               ":location"=>$_POST['location'],
+                               ":date"=>date("Y-m-d h:i:sa")
+							   ));
+				 echo "</br>";
+				 echo "Location Updated";
 }
-$alert = getAlert();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,33 +51,17 @@ $alert = getAlert();
 <body>
 <div class = "container-fluid text-center">
 <h1>Traveling Tracker </h1> 
-<textarea readonly rows = "8" cols = "50">
-Emergency Alerts:&#13;&#10;
-<? 
-foreach($alert as $alerts) {
-	echo $alerts['alert'];
-}?>
-</textarea>
+<form name = "input" id = "form1" method ="post">
+Enter Current Location:  
+<input type ="text" name = "location"/>
 </br>
-<a href = "../login/UpdateLocation.html" style = "text-decoration:none" >
-<button type = "button" class="btn btn-default btn-large">Update Location</button>
-</a>
+Today's Date is: <? echo date("Y-m-d h:i:sa"); ?>
+</form>
+<button type ="submit" name = "update" class = "btn btn-default btn-large" form = "form1" value = "Submit">Update My Current Location</button>
 
-</br>
-</br>
-<a href = "travelplan.php" style = "text-decoration:none">
+</br> </br> </br> </br> </br>
+<a href= "menu.php" style = "text-decoration: none"> 
+<button >Back To Main Menu </button> </a>
+</body> 
 
-<button type = "button" class = "btn btn-default btn-large" >Travel Plan</button>
-</a>
-</br>
-</br>
-<a href="tel:911" style = "text-decoration:none">
-<button type = "button" class = "btn btn-default btn-large" >Emergency Contact</button>
-</a>
-</br>
-
-</div>
-</body>
-
-	
 </html>
