@@ -16,25 +16,34 @@
   <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="RegisterCheck.js"></script>
+    <script href="../bootstrap/js/bootstrap.js"></script>
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css"></link>
 </head>
 
 <body>
-  <div>
-    <header>
-      <h1>register</h1>
-    </header>
-    <nav>
-      <p><a href="/">Home</a></p>
-      <p><a href="/contact">Contact</a></p>
-    </nav>
+	<div class = "container-fluid text-center">
+  <form>
 
-    <div>
-      
-    </div>
+              		<h1>Traveling Tracker</h1>
+              			First Name<input type="text" id="fName"> 
+              			</br>
+              		
+              			Last Name<input type="text" id="lName">
+              		</br>
+              			Address</br>
+              			<input type="text" id="address">
+           				</br>
+              			Date of Birth</br><input type="date" id="dob">
+              		</br>
 
-    <footer>
-     <p>&copy; Copyright  by admin</p>
-    </footer>
-  </div>
+              		
+              		<input type="button" value="submit" id="submit" onclick="checkData();redirect();" >
+              		</form>
+              		<a href= "login.php" style = "text-decoration: none"> 
+<button >Back to Login Page</button> </a>
 </body>
+</div>
 </html>
