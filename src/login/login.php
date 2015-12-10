@@ -44,12 +44,13 @@ session_destroy();
   
   <a href= "register.html" style = "text-decoration: none"> 
 <button >Register</button> </a>
-          </br>   			
-       <? if(isset($_SESSION['error']))  {
-  		echo "Incorrect username/password";
-		echo "</br>";
-     }    
-	 ?>       
+          <br/>   			
+       <?php
+       if(isset($_SESSION['error']))  {
+  		    echo "Incorrect username/password";
+  		    echo "<br />";
+       }
+       ?>
    				 
 
   </div>
